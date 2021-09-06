@@ -9,13 +9,14 @@ const app = express();
 conectarDB();
 
 // Habilitar CORS
-app.use(cors());
+app.use(cors({ credentials: true, origin: true }));
+app.options("*", cors());
 
 // Habilitar express.json
 app.use(express.json({ extended: true }));
 
 // Puerto de la App
-const port = process.env.port || 4000;
+const port = process.env.PORT || 4000;
 
 // Definir la pagina principal
 // app.get('/', (req, res) => {
